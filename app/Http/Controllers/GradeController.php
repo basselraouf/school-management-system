@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Grade;
+use Exception;
 use GuzzleHttp\Promise\Create;
 use Illuminate\Http\Request;
 
@@ -30,11 +31,19 @@ class GradeController extends Controller
      */
     public function store(Request $request)
     {
-        $validated = $request->validate([
-            'Name' => 'required|string|max:255',
-            'Notes' => 'nullable|string'
-        ]);
-        Grade::Create($validated);
+        try{
+            $validated = $request->validate([
+                'Name' => 'required|string|max:255',
+                'Notes' => 'nullable|string'
+            ]);
+
+            Grade::Create($validated);
+
+        }catch(Exception $e){
+
+            return redirect()->route('grades.index')->with('error', 'An error occurred: ' . $e->getMessage());
+
+        }
 
         return redirect()->route('grades.index')->with('success', 'Grade added successfully.');;
     }
@@ -53,6 +62,7 @@ class GradeController extends Controller
     public function edit($id)
     {
         $grade = Grade::findOrFail($id);
+        
         return view('pages.grades.update-grade',compact('grade'));
     }
 
@@ -61,12 +71,19 @@ class GradeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $grade = Grade::findOrFail($id);
-        $grade->update([
-            'Name'=>$request->Name,
-            'Notes'=>$request->Notes
-        ]);
-        return redirect()->route('grades.index')->with('success', 'تم تعديل الصف بنجاح.');
+        try {
+            $grade = Grade::findOrFail($id);
+
+            $grade->update([
+                'Name'=>$request->Name,
+                'Notes'=>$request->Notes
+            ]);
+
+        }catch(Exception $e){
+            return redirect()->route('grades.index')->with('error', 'something went wrong');
+        }
+
+        return redirect()->route('grades.index')->with('success', 'grade updated successfully');
     }
 
     /**
@@ -74,10 +91,18 @@ class GradeController extends Controller
      */
     public function destroy($id)
     {
-        $grade = Grade::findOrFail($id);
+        try{
 
-        $grade->delete();
+            $grade = Grade::findOrFail($id);
 
-       return redirect()->route('grades.index')->with('success', 'تم حذف الصف بنجاح.');
+            $grade->delete();
+
+        }catch(Exception $e){
+
+            return redirect()->route('grades.index')->with('error', 'something went wrong');
+
+        }
+
+       return redirect()->route('grades.index')->with('success', 'grade deleted successfully');
     }
 }

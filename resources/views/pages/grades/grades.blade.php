@@ -54,7 +54,7 @@
             <th scope="col">ID</th>
             <th scope="col">Name</th>
             <th scope="col">Notes</th>
-            <th scope="col">Operation</th>
+            <th scope="col">Operations</th>
             </tr>
         </thead>
         <tbody>
@@ -67,11 +67,13 @@
                 <a href="{{ route('grades.edit', $grade->id) }}" class="btn btn-primary mx-1">
                     Edit
                 </a>
-                <form action="{{route('grades.delete', $grade->id)}}" method="POST" style="display: inline;">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit" class="btn btn-danger">Delete</button>
-                </form>
+                <button type="button" class="btn btn-danger"
+                    data-toggle="modal"
+                    data-target="#deleteModal"
+                    data-id="{{ $grade->id }}"
+                    data-name="{{ $grade->Name }}">
+                    Delete
+                </button>
             </td>
         </tr>
         @endforeach
@@ -82,6 +84,35 @@
     </div>
         </div>
     </div>
+
+<!-- delete_modal_Grade -->
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteModalLabel">Delete Classroom</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="{{ route('grades.destroy', $grade->id) }}" method="POST">
+                    @method('DELETE')
+                    @csrf
+                    Are you sure you want to delete this grade?
+                    <input type="hidden" name="id" value="{{ $grade->id }}">
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary"
+                                data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-danger">
+                            Delete
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 <!-- row closed -->
 @endsection
 @section('js')

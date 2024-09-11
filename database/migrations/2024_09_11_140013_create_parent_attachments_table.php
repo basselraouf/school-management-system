@@ -11,9 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('type_bloods', function (Blueprint $table) {
+        Schema::create('parent_attachments', function (Blueprint $table) {
             $table->id();
-            $table->string('Name')->unique();
+            $table->string('file_name')->nullable();
+            $table->foreignId('parent_id')->constrained('my__parents')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -23,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('type_bloods');
+        Schema::dropIfExists('parent_attachments');
     }
 };

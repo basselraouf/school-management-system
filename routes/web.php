@@ -3,11 +3,11 @@
 use App\Http\Controllers\ClassroomController;
 use App\Http\Controllers\GradeController;
 use App\Http\Controllers\HomeController;
-use App\Models\classroom;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use Illuminate\View\View;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
+use livewire\Livewire;
+use Livewire\Http\LivewireController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,19 +20,26 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 |
 */
 
-
 Route::group(
     [
         'prefix' => LaravelLocalization::setLocale(),
         'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath', 'auth']
     ], function(){
+
+        Livewire::setUpdateRoute(function ($handle) {
+            return Route::post('/livewire/update', $handle);
+        });
+
         Route::get('/', function()
 	    {
-		    return view('auth.login');
+		    return view('dashboard');
 	    });
 
+        //==============================Dashboard===============================
 
     Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+        //==============================Grades===============================
 
     Route::group(['prefix' => 'grades'], function() {
         Route::get('/', [GradeController::class, 'index'])->name('grades.index');
@@ -43,6 +50,8 @@ Route::group(
         Route::delete('/delete/{id}', [GradeController::class , 'destroy'])->name('grades.destroy');
     });
 
+        //==============================Classrooms============================
+
     Route::group(['prefix' => 'classrooms'], function() {
         Route::get('/', [ClassroomController::class, 'index'])->name('classrooms.index');
         Route::get('/create', [ClassroomController::class, 'create'])->name('classrooms.create');
@@ -52,7 +61,14 @@ Route::group(
         Route::delete('/delete/{id}', [ClassroomController::class , 'destroy'])->name('classrooms.destroy');
     });
 
+        //==============================parents================================
+
+
+        Route::view('add_parent','livewire.show_Form');
  });
+
+
+
 
     Auth::routes();
 

@@ -15,7 +15,7 @@
                     </li>
                     <!-- menu title -->
                     <li class="mt-10 mb-10 text-muted pl-4 font-medium menu-title">Components </li>
-                    <!-- menu item Elements-->
+                    <!-- menu item Grades-->
                     <li>
                         <a href="javascript:void(0);" data-toggle="collapse" data-target="#elements">
                             <div class="pull-left"><i class="ti-palette"></i><span
@@ -27,86 +27,54 @@
                             <li><a href="{{route('grades.index')}}">{{trans('main_trans.Grades-List')}}</a></li>
                         </ul>
                     </li>
-                    <!-- menu item calendar-->
+                    <!-- menu item Classrooms-->
                     <li>
                         <a href="javascript:void(0);" data-toggle="collapse" data-target="#calendar-menu">
                             <div class="pull-left"><i class="ti-calendar"></i><span
-                                    class="right-nav-text">{{trans('main_trans.classrooms')}}</span></div>
+                                    class="right-nav-text">{{trans('main_trans.Classrooms')}}</span></div>
                             <div class="pull-right"><i class="ti-plus"></i></div>
                             <div class="clearfix"></div>
                         </a>
                         <ul id="calendar-menu" class="collapse" data-parent="#sidebarnav">
-                            <li> <a href="{{route('classrooms.index')}}">{{trans('main_trans.classrooms-list')}}</a> </li>
+                            <li> <a href="{{route('classrooms.index')}}">{{trans('main_trans.Classrooms-list')}}</a> </li>
                         </ul>
                     </li>
-                    <!-- menu item todo-->
-                    <li>
-                        <a href="todo-list.html"><i class="ti-menu-alt"></i><span class="right-nav-text">Todo
-                                list</span> </a>
-                    </li>
-                    <!-- menu item chat-->
-                    <li>
-                        <a href="chat-page.html"><i class="ti-comments"></i><span class="right-nav-text">Chat
-                            </span></a>
-                    </li>
-                    <!-- menu item mailbox-->
-                    <li>
-                        <a href="mail-box.html"><i class="ti-email"></i><span class="right-nav-text">Mail
-                                box</span> <span class="badge badge-pill badge-warning float-right mt-1">HOT</span> </a>
-                    </li>
-                    <!-- menu item Charts-->
+
+                    <!-- menu item Students-->
                     <li>
                         <a href="javascript:void(0);" data-toggle="collapse" data-target="#chart">
                             <div class="pull-left"><i class="ti-pie-chart"></i><span
-                                    class="right-nav-text">Charts</span></div>
+                                    class="right-nav-text">{{trans('main_trans.Students')}}</span></div>
                             <div class="pull-right"><i class="ti-plus"></i></div>
                             <div class="clearfix"></div>
                         </a>
                         <ul id="chart" class="collapse" data-parent="#sidebarnav">
                             <li> <a href="chart-js.html">Chart.js</a> </li>
-                            <li> <a href="chart-morris.html">Chart morris </a> </li>
-                            <li> <a href="chart-sparkline.html">Chart Sparkline</a> </li>
                         </ul>
                     </li>
 
-                    <!-- menu font icon-->
+                    <!-- menu item Teachers-->
                     <li>
                         <a href="javascript:void(0);" data-toggle="collapse" data-target="#font-icon">
-                            <div class="pull-left"><i class="ti-home"></i><span class="right-nav-text">font
-                                    icon</span></div>
+                            <div class="pull-left"><i class="ti-home"></i><span class="right-nav-text">{{trans('main_trans.Teachers')}}</span></div>
                             <div class="pull-right"><i class="ti-plus"></i></div>
                             <div class="clearfix"></div>
                         </a>
                         <ul id="font-icon" class="collapse" data-parent="#sidebarnav">
                             <li> <a href="fontawesome-icon.html">font Awesome</a> </li>
                             <li> <a href="themify-icons.html">Themify icons</a> </li>
-                            <li> <a href="weather-icon.html">Weather icons</a> </li>
                         </ul>
                     </li>
-                    <!-- menu title -->
-                    <li class="mt-10 mb-10 text-muted pl-4 font-medium menu-title">Widgets, Forms & Tables </li>
-                    <!-- menu item Widgets-->
-                    <li>
-                        <a href="widgets.html"><i class="ti-blackboard"></i><span class="right-nav-text">Widgets</span>
-                            <span class="badge badge-pill badge-danger float-right mt-1">59</span> </a>
-                    </li>
-                    <!-- menu item Form-->
+                    <!-- menu item Parents-->
                     <li>
                         <a href="javascript:void(0);" data-toggle="collapse" data-target="#Form">
-                            <div class="pull-left"><i class="ti-files"></i><span class="right-nav-text">Form &
-                                    Editor</span></div>
+                            <div class="pull-left"><i class="ti-files"></i><span class="right-nav-text">{{trans('main_trans.Parents')}}</span></div>
                             <div class="pull-right"><i class="ti-plus"></i></div>
                             <div class="clearfix"></div>
                         </a>
                         <ul id="Form" class="collapse" data-parent="#sidebarnav">
-                            <li> <a href="editor.html">Editor</a> </li>
-                            <li> <a href="editor-markdown.html">Editor Markdown</a> </li>
-                            <li> <a href="form-input.html">Form input</a> </li>
-                            <li> <a href="form-validation-jquery.html">form validation jquery</a> </li>
-                            <li> <a href="form-wizard.html">form wizard</a> </li>
-                            <li> <a href="form-repeater.html">form repeater</a> </li>
-                            <li> <a href="input-group.html">input group</a> </li>
-                            <li> <a href="toastr.html">toastr</a> </li>
+                            <li> <a href="editor.html">{{trans('main_trans.Parents_list')}}</a> </li>
+                            <li> <a href="{{url('add_parent')}}">{{trans('main_trans.Add_parent')}}</a> </li>
                         </ul>
                     </li>
                     <!-- menu item table -->

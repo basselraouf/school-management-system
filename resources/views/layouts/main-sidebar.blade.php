@@ -24,7 +24,7 @@
                             <div class="clearfix"></div>
                         </a>
                         <ul id="elements" class="collapse" data-parent="#sidebarnav">
-                            <li><a href="{{route('grades.index')}}">{{trans('main_trans.Grades-List')}}</a></li>
+                            <li><a href="{{route('grades.index')}}">{{trans('main_trans.Grades_List')}}</a></li>
                         </ul>
                     </li>
                     <!-- menu item Classrooms-->
@@ -36,7 +36,7 @@
                             <div class="clearfix"></div>
                         </a>
                         <ul id="calendar-menu" class="collapse" data-parent="#sidebarnav">
-                            <li> <a href="{{route('classrooms.index')}}">{{trans('main_trans.Classrooms-list')}}</a> </li>
+                            <li> <a href="{{route('classrooms.index')}}">{{trans('main_trans.Classrooms_list')}}</a> </li>
                         </ul>
                     </li>
 
@@ -49,7 +49,7 @@
                             <div class="clearfix"></div>
                         </a>
                         <ul id="chart" class="collapse" data-parent="#sidebarnav">
-                            <li> <a href="chart-js.html">Chart.js</a> </li>
+                            <li> <a href="chart-js.html">{{trans('main_trans.Add_student')}}</a> </li>
                         </ul>
                     </li>
 
@@ -61,8 +61,7 @@
                             <div class="clearfix"></div>
                         </a>
                         <ul id="font-icon" class="collapse" data-parent="#sidebarnav">
-                            <li> <a href="fontawesome-icon.html">font Awesome</a> </li>
-                            <li> <a href="themify-icons.html">Themify icons</a> </li>
+                            <li> <a href="{{ route('teachers.index') }}">{{trans('main_trans.Teachers_List')}}</a> </li>
                         </ul>
                     </li>
                     <!-- menu item Parents-->
@@ -73,7 +72,6 @@
                             <div class="clearfix"></div>
                         </a>
                         <ul id="Form" class="collapse" data-parent="#sidebarnav">
-                            <li> <a href="editor.html">{{trans('main_trans.Parents_list')}}</a> </li>
                             <li> <a href="{{url('add_parent')}}">{{trans('main_trans.Add_parent')}}</a> </li>
                         </ul>
                     </li>

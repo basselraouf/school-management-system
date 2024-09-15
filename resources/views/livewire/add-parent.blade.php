@@ -7,6 +7,9 @@
 @endif
 
 <div>
+    @if($showTable)
+    @include('livewire.Parent_Table')
+    @else
     <div class="stepwizard">
         <div class="stepwizard-row setup-panel">
             <div class="stepwizard-step">
@@ -44,13 +47,21 @@
                         <input type="file" wire:model="photos" accept="image/*" multiple>
                     </div>
                     <br>
-                    
+
                 <h3 style="font-family: 'Cairo', sans-serif;">{{trans('Parent_trans.Save')}}</h3><br>
                 <button class="btn btn-danger btn-sm nextBtn btn-lg pull-right" type="button"
                         wire:click="back(2)">{{ trans('Parent_trans.Back') }}</button>
-                <button class="btn btn-success btn-sm btn-lg pull-right" wire:click="submitForm"
-                        type="button">{{ trans('Parent_trans.Finish') }}</button>
+                        @if($updateMode)
+                        <button class="btn btn-success btn-sm nextBtn btn-lg pull-right" wire:click="submitForm_edit"
+                                type="button">{{trans('Parent_trans.Finish')}}
+                        </button>
+                    @else
+                        <button class="btn btn-success btn-sm btn-lg pull-right" wire:click="submitForm"
+                                type="button">{{ trans('Parent_trans.Finish') }}</button>
+                    @endif
+
             </div>
         </div>
     </div>
+    @endif
 </div>

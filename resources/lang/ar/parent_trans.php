@@ -37,5 +37,8 @@ return [
     'Attachments' => 'المرفقات',
     'Processes' => 'العمليات',
     'Choose' => 'اختيار من القائمة',
+    'add_parent' => 'اضافة ولي امر',
+    'Edit' => 'تعديل',
+    'Delete' => 'حذف',
 
 ];

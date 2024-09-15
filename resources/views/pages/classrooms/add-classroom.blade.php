@@ -7,6 +7,14 @@
 @endsection
 @section('page-header')
 <!-- breadcrumb -->
+@if(session()->has('error'))
+<div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <strong>{{ session()->get('error') }}</strong>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+@endif
 <div class="page-title">
     <div class="row">
         <div class="col-sm-6">
@@ -39,10 +47,13 @@
             <div class="card-body">
                 <form action="{{ route('classrooms.store') }}" method="POST">
                     @csrf
+                    <!-- Classroom Name Input -->
                     <div class="form-group">
                         <label for="classroomName">Classroom Name:</label>
                         <input type="text" name="Name" id="classroomName" class="form-control" value="{{ old('Name') }}" required>
                     </div>
+
+                    <!-- Grade Dropdown -->
                     <div class="form-group">
                         <label for="gradeId">Grade:</label>
                         <select name="grade_id" id="gradeId" class="form-control" style="height:auto; padding: 8px;" required>
@@ -52,12 +63,26 @@
                             @endforeach
                         </select>
                     </div>
+
+                    <!-- Teachers Multi-Select -->
+                    <div class="form-group">
+                        <label for="teacherIds">Select Teachers:</label>
+                        <select name="teacher_ids[]" id="teacherIds" class="form-control" multiple style="height:auto; padding: 8px;">
+                            @foreach($teachers as $teacher)
+                                <option value="{{ $teacher->id }}">{{ $teacher->Name }}</option>
+                            @endforeach
+                        </select>
+                        <!-- Instructions for Multi-Select -->
+                        <small class="form-text text-muted">Hold down the Ctrl (Windows) / Command (Mac) button to select multiple options.</small>
+                    </div>
+
+                    <!-- Submit Button -->
                     <button type="submit" class="btn btn-primary mt-3">Add Classroom</button>
                 </form>
             </div>
         </div>
     </div>
-</div>
+
 <!-- row closed -->
 @endsection
 @section('js')

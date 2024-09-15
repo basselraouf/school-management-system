@@ -10,9 +10,14 @@ class classroom extends Model
     use HasFactory;
 
     protected $fillable = ['Name', 'grade_id'];
-    
 
-    public function grade(){
+    public function grade()
+    {
         return $this->belongsTo(Grade::class);
+    }
+
+    public function teachers()
+    {
+        return $this->belongsToMany(Teacher::class, 'teacher_classroom');
     }
 }

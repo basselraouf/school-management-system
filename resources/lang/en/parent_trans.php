@@ -26,5 +26,8 @@ return [
     'Attachments' => 'Attachments',
     'Processes' => 'Processes',
     'Choose' => 'Choose',
+    'add_parent' => 'add new parent',
+    'Edit' => 'Edit',
+    'Delete' => 'Delete',
 
 ];

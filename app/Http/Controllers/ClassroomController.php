@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\classroom;
 use App\Models\Grade;
+use App\Models\Teacher;
 use Exception;
 use Illuminate\Http\Request;
 
@@ -24,7 +25,8 @@ class ClassroomController extends Controller
     public function create()
     {
         $grades = Grade::all();
-        return view('pages.classrooms.add-classroom',compact('grades'));
+        $teachers = Teacher::all();
+        return view('pages.classrooms.add-classroom',compact(['grades', 'teachers']));
     }
 
     /**
@@ -35,13 +37,19 @@ class ClassroomController extends Controller
             try{
                 $validated = $request->validate([
                     'Name' => 'required|string|max:255',
-                    'grade_id' => 'required|exists:grades,id'
+                    'grade_id' => 'required|exists:grades,id',
+                    'teacher_ids' => 'required|array',
+                    'teacher_ids.*' => 'exists:teachers,id',
                 ]);
-                // dd($request->all());
-                classroom::create([
+
+                $classroom = classroom::create([
                     'Name' => $validated['Name'],
                     'grade_id' => $validated['grade_id'],
                 ]);
+
+                $classroom->teachers()->attach($validated['teacher_ids']);
+
+
             }catch(Exception $e){
                 return redirect()->route('classrooms.index')->with('error', 'something went wrong while adding new classroom.');
             }
@@ -62,9 +70,10 @@ class ClassroomController extends Controller
      */
     public function edit($id)
     {
-        $classroom = classroom::findOrFail($id);
+        $classroom = classroom::with('teachers')->findOrFail($id);
         $grades = Grade::all();
-        return view('pages.classrooms.update-classroom',compact(['classroom','grades']));
+        $teachers = Teacher::all();
+        return view('pages.classrooms.update-classroom',compact(['classroom', 'grades', 'teachers']));
     }
 
     /**
@@ -74,12 +83,21 @@ class ClassroomController extends Controller
     {
         try{
 
+            $validated = $request->validate([
+                'Name' => 'required|string|max:255',
+                'grade_id' => 'required|exists:grades,id',
+                'teacher_ids' => 'required|array',
+                'teacher_ids.*' => 'exists:teachers,id',
+            ]);
+
             $classroom = classroom::findOrFail($id);
 
             $classroom->update([
                 'Name' => $request->Name,
                 'grade_id' => $request->grade_id
             ]);
+
+            $classroom->teachers()->sync($validated['teacher_ids']);
 
         }catch(Exception $e){
             return redirect()->route('classrooms.index')->with('error', 'something went wrong while updating new classroom.');

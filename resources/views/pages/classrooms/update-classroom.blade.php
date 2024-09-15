@@ -37,13 +37,17 @@
     <div class="col-md-12 mb-30">
         <div class="card card-statistics h-100">
             <div class="card-body">
-                <p><form action="{{ route('classrooms.update', $classroom->id) }}" method="POST">
+                <form action="{{ route('classrooms.update', $classroom->id) }}" method="POST">
                     @csrf
                     @method('PUT')
+
+                    <!-- Classroom Name Input -->
                     <div class="form-group">
                         <label for="Name">Name:</label>
                         <input type="text" name="Name" value="{{ $classroom->Name }}" class="form-control" required>
                     </div>
+
+                    <!-- Grade Dropdown -->
                     <div class="form-group">
                         <label for="gradeId">Grade:</label>
                         <select name="grade_id" id="gradeId" class="form-control" style="height:auto; padding: 12px" required>
@@ -54,8 +58,23 @@
                             @endforeach
                         </select>
                     </div>
+
+                    <!-- Teachers Multi-Select -->
+                    <div class="form-group">
+                        <label for="teacherIds">Select Teachers:</label>
+                        <select name="teacher_ids[]" id="teacherIds" class="form-control" multiple style="height:auto; padding: 12px;">
+                            @foreach($teachers as $teacher)
+                                <option value="{{ $teacher->id }}" {{ in_array($teacher->id, $classroom->teachers->pluck('id')->toArray()) ? 'selected' : '' }}>
+                                    {{ $teacher->Name }}
+                                </option>
+                            @endforeach
+                        </select>
+                        <small class="form-text text-muted">Hold down the Ctrl (Windows) / Command (Mac) button to select multiple options.</small>
+                    </div>
+
+                    <!-- Submit Button -->
                     <button type="submit" class="btn btn-primary">Update</button>
-                </form></p>
+                </form>
             </div>
         </div>
     </div>

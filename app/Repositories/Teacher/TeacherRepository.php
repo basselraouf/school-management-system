@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Repositories;
+namespace App\Repositories\Teacher;
 
 use App\Models\Gender;
 use App\Models\Specialization;

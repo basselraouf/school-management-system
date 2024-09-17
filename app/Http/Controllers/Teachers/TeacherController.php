@@ -3,8 +3,7 @@
 namespace App\Http\Controllers\Teachers;
 
 use App\Http\Controllers\Controller;
-use App\Models\Teacher;
-use App\Repositories\TeacherRepositoryInterface;
+use App\Repositories\Teacher\TeacherRepositoryInterface;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
@@ -144,7 +143,7 @@ class TeacherController extends Controller
         }catch(Exception $e){
 
             return redirect()->back()->with(['error' => $e->getMessage()]);
-            
+
         }
     }
 }

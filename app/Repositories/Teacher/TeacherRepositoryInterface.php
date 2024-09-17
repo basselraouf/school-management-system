@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Repositories;
+namespace App\Repositories\Teacher;
 
 interface TeacherRepositoryInterface
 {
@@ -11,8 +11,5 @@ interface TeacherRepositoryInterface
     public function editTeachers($id);
     public function updateTeacher($data, $id);
     public function deleteTeacher($id);
-    // public function getTeacherById($id);
-    // public function createTeacher(array $data);
-    // public function updateTeacher($id, array $data);
-    // public function deleteTeacher($id);
+
 }

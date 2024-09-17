@@ -49,7 +49,8 @@
                             <div class="clearfix"></div>
                         </a>
                         <ul id="chart" class="collapse" data-parent="#sidebarnav">
-                            <li> <a href="chart-js.html">{{trans('main_trans.Add_student')}}</a> </li>
+                            <li> <a href="{{route('students.create')}}">{{trans('main_trans.Add_student')}}</a> </li>
+                            <li> <a href="{{route('students.index')}}">{{trans('main_trans.Student_List')}}</a> </li>
                         </ul>
                     </li>
 

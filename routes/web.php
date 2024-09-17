@@ -3,6 +3,7 @@
 use App\Http\Controllers\ClassroomController;
 use App\Http\Controllers\GradeController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Students\StudentController;
 use App\Http\Controllers\Teachers\TeacherController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -69,15 +70,11 @@ Route::group(
         //==============================Teachers================================
 
         Route::resource('teachers', TeacherController::class);
-    // Route::group(['prefix' => 'teachers'], function () {
-    //     Route::get('/', [TeacherController::class, 'index'])->name('teachers.index');
-    //     Route::get('create', [TeacherController::class, 'create'])->name('teachers.create');
-    //     Route::post('/', [TeacherController::class, 'store'])->name('teachers.store');
-    //     Route::get('{teacher}', [TeacherController::class, 'show'])->name('teachers.show');
-    //     Route::get('edit/{teacher/', [TeacherController::class, 'edit'])->name('teachers.edit');
-    //     Route::put('{id}', [TeacherController::class, 'update'])->name('teachers.update');
-    //     Route::delete('{teacher}', [TeacherController::class, 'destroy'])->name('teachers.destroy');
-    // });
+
+        //==============================Students================================
+
+        Route::resource('students', StudentController::class);
+        Route::get('Get_classrooms/{id}', [StudentController::class, 'Get_classrooms']);
 
  });
 

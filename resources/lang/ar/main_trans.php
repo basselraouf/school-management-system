@@ -15,6 +15,7 @@ return [
     'List_sections'=>'قائمة الاقسام الدراسية',
     'Students'=>'الطلاب',
     'Add_student'=>'اضافة طالب',
+    'Student_List'=>'قائمة الطلاب',
     'Teachers'=>'المعلمين',
     'Teachers_List' => 'قائمة المعلمين',
     'Parents'=>'اولياء الامور',

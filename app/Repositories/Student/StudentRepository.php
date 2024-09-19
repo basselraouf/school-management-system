@@ -5,12 +5,14 @@ namespace App\Repositories\Student;
 use App\Models\classroom;
 use App\Models\Gender;
 use App\Models\Grade;
+use App\Models\Image;
 use App\Models\My_Parent;
 use App\Models\Nationality;
 use App\Models\Student;
 use App\Models\Type_Blood;
 use App\Repositories\Student\StudentRepositoryInterface;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 
 class StudentRepository implements StudentRepositoryInterface
 {
@@ -21,7 +23,7 @@ class StudentRepository implements StudentRepositoryInterface
 
     public function getSpecificStudent($id)
     {
-        return Student::findOrFail($id);
+        return Student::with('images')->findOrFail($id);
     }
 
     public function createStuednt()
@@ -73,6 +75,22 @@ class StudentRepository implements StudentRepositoryInterface
         $students->parent_id = $data['parent_id'];
         $students->academic_year = $data['academic_year'];
         $students->save();
+
+        if(request()->hasfile('photos'))
+        {
+            foreach(request()->file('photos') as $file)
+            {
+                $name = $file->getClientOriginalName();
+                $file->storeAs('attachments/students/'.$students->id, $file->getClientOriginalName(),'upload_attachments');
+
+                // insert in image_table
+                $images= new Image();
+                $images->url = $name;
+                $images->imageable_id = $students->id;
+                $images->imageable_type = Student::class;
+                $images->save();
+            }
+        }
     }
 
     public function updateStudent(array $data, $id)
@@ -92,5 +110,34 @@ class StudentRepository implements StudentRepositoryInterface
             'parent_id' => $data['parent_id'],
             'academic_year' => $data['academic_year'],
         ]);
+    }
+
+    public function Upload_attachment($request)
+    {
+        foreach($request->file('photos') as $file)
+        {
+            $name = $file->getClientOriginalName();
+            $file->storeAs('attachments/students/'.$request->student_id, $file->getClientOriginalName(),'upload_attachments');
+
+            // insert in image_table
+                $images= new Image();
+                $images->url = $name;
+                $images->imageable_id = $request->student_id;
+                $images->imageable_type = Student::class;
+                $images->save();
+        }
+    }
+
+    public function Download_attachment($studentId, $url)
+    {
+        return response()->download(public_path('attachments/students/'.$studentId.'/'.$url));
+    }
+
+    public function Delete_attachment($request)
+    {
+
+        Storage::disk('upload_attachments')->delete('attachments/students/'.$request->student_name.'/'.$request->filename);
+
+        image::where('id',$request->id)->forceDelete();
     }
 }

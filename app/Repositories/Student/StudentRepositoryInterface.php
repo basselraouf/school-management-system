@@ -11,5 +11,8 @@ interface StudentRepositoryInterface
     public function storeStudent(array $data);
     public function updateStudent(array $data, $id);
     public function Get_classrooms($id);
+    public function Upload_attachment($request);
+    public function Download_attachment($studentId, $url);
+    public function Delete_attachment($request);
 
 }

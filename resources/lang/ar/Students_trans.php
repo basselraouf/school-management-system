@@ -18,9 +18,19 @@ return [
  'section' => 'القسم',
  'parent' => 'ولي الامر',
  'academic_year' => 'السنة الدراسية',
+ 'Student_details' => 'معلومات الطالب',
+ 'Attachments' => 'مرفقات الطالب',
  'submit' => 'حفظ البيانات',
  'Deleted_Student' => 'حذف بيانات الطالب',
  'Deleted_Student_tilte' => 'هل انت متأكد من حذف الطالب ؟',
 
+ 'filename' => 'اسم الملف',
+ 'Processes' => 'العمليات',
+ 'created_at' => 'تاريخ الاضافة',
+ 'Download' => 'تحميل',
+ 'Close' => 'اغلاق',
+ 'delete' => 'حذف',
+ 'Delete_attachment' => 'حذف مرفق',
+ 'Delete_attachment_tilte' => 'هل انت متأكد من حذف المرفق ؟',
 
 ];

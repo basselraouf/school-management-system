@@ -56,7 +56,8 @@ class StudentController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $Student = $this->studentRepository->getSpecificStudent($id);
+        return view('pages.Students.show-student', compact('Student'));
     }
 
     /**
@@ -73,7 +74,6 @@ class StudentController extends Controller
      */
     public function update(StoreStudentRequest $request, $id)
     {
-        // dd($request->only(['name_ar', 'name_en', 'email']));
         try {
             $this->studentRepository->updateStudent($request->validated(), $id);
 
@@ -104,5 +104,24 @@ class StudentController extends Controller
     public function Get_classrooms($id)
     {
        return $this->studentRepository->Get_classrooms($id);
+    }
+
+    public function Upload_attachment(Request $request)
+    {
+        $this->studentRepository->Upload_attachment($request);
+
+        return redirect()->route('students.show', $request->student_id)->with('success', trans('messages.success'));
+    }
+
+    public function Download_attachment($studentId, $url)
+    {
+        return $this->studentRepository->Download_attachment($studentId,$url);
+    }
+
+    public function Delete_attachment(Request $request)
+    {
+        $this->studentRepository->Delete_attachment($request);
+
+        return redirect()->route('students.show', $request->student_id)->with('success', trans('messages.success'));
     }
 }

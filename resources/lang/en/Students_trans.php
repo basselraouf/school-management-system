@@ -18,8 +18,18 @@ return [
      'section' => 'section',
      'parent' => 'parent',
      'academic_year' => 'academic_year',
+     'Student_details' => 'Student Details',
+     'Attachments' => 'student attachments',
      'submit' => 'submit',
      'Deleted_Student' => 'Delete student data',
      'Deleted_Student_tilte' => 'Are you sure to delete the student ?',
 
+     'filename' => 'file name',
+     'created_at' => 'created_at',
+     'Processes' => 'Processes',
+     'Download' => 'Download',
+     'Close' => 'close',
+     'delete' => 'Delete',
+     'Delete_attachment' => 'Delete attachment',
+     'Delete_attachment_tilte' => 'Are you sure to delete the attachment?',
 ];

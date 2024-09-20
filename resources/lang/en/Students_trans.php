@@ -24,6 +24,14 @@ return [
      'Deleted_Student' => 'Delete student data',
      'Deleted_Student_tilte' => 'Are you sure to delete the student ?',
 
+    'Previous_Grade'=>'Previous Grade',
+    'Previous_Classroom'=>'Previous Classroom',
+    'Current_Grade'=>'Current Grade',
+    'Current_Classroom'=>'Current Classroom',
+    'Undo_Promotion'=>'Undo Promotion',
+    'Graduate_Student'=>'GraduateStudent',
+    'Undo_AllPromotions'=>'Undo All Promotions',
+
      'filename' => 'file name',
      'created_at' => 'created_at',
      'Processes' => 'Processes',

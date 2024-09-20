@@ -24,6 +24,14 @@ return [
  'Deleted_Student' => 'حذف بيانات الطالب',
  'Deleted_Student_tilte' => 'هل انت متأكد من حذف الطالب ؟',
 
+ 'Previous_Grade'=>'الصف الدراسي السابق',
+ 'Previous_Classroom'=>'القسم الدراسي السابق',
+ 'Current_Grade'=>'الصف الدراسي الحالي',
+ 'Current_Classroom'=>'القسم الدراسي الحالي',
+ 'Undo_Promotion'=>'ارجاع الطالب',
+ 'Graduate_Student'=>'تخرج الطالب',
+ 'Undo_AllPromotions'=>'تراجع الكل',
+
  'filename' => 'اسم الملف',
  'Processes' => 'العمليات',
  'created_at' => 'تاريخ الاضافة',

@@ -16,6 +16,8 @@ return [
     'Students'=>'Students',
     'Add_student'=>'Add Student',
     'Student_List'=>'Student List',
+    'Students_Promotions'=>'Students Promotion',
+    'Promotion_Management'=>'Promotion Management',
     'information_student'=>'Information Students',
     'Students_upgrade'=>'Students Upgrade',
     'Graduate_students'=>'Graduate Students',

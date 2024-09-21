@@ -35,6 +35,7 @@ return [
     'Users'=>'Users',
     'Copyright' => 'Copyright',
     'Name_Programer' => 'SamirGamal MoraSoft All Rights Reserved',
-
+    'Add_graduated'=> 'Add a graduate',
+    'Graduated_list'=> 'Graduated List'
 
 ];

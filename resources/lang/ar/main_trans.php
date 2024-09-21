@@ -32,5 +32,6 @@ return [
     'Users'=>'المستخدمين',
     'Copyright' => 'جميع الحقوق محفوظة ',
     'Name_Programer' => 'سمير جمال مورا سوفت',
-
+    'Add_graduated'=> 'اضافة خريج',
+    'Graduated_list'=> 'قائمة المتخرجين'
 ];

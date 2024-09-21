@@ -3,6 +3,7 @@
 use App\Http\Controllers\ClassroomController;
 use App\Http\Controllers\GradeController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Students\GraduationController;
 use App\Http\Controllers\Students\PromotionController;
 use App\Http\Controllers\Students\StudentController;
 use App\Http\Controllers\Teachers\TeacherController;
@@ -83,6 +84,10 @@ Route::group(
         //==============================Promotion================================
 
         Route::resource('promotions', PromotionController::class);
+
+        //==============================Graduation================================
+
+        Route::resource('graduations', GraduationController::class);
  });
 
 

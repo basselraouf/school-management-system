@@ -53,6 +53,8 @@
                             <li> <a href="{{route('students.index')}}">{{trans('main_trans.Student_List')}}</a> </li>
                             <li> <a href="{{route('promotions.index')}}">{{trans('main_trans.Students_Promotions')}}</a> </li>
                             <li> <a href="{{route('promotions.create')}}">{{trans('main_trans.Promotion_Management')}}</a> </li>
+                            <li> <a href="{{route('graduations.create')}}">{{trans('main_trans.Add_graduated')}}</a> </li>
+                            <li> <a href="{{route('graduations.index')}}">{{trans('main_trans.Graduated_list')}}</a> </li>
                         </ul>
                     </li>
 

@@ -27,6 +27,7 @@ return [
     'Add_parent'=>'Add Parent',
     'List_Parents'=>'List Parents',
     'Accounts'=>'Accounts',
+    'Fees' => 'Fees',
     'Attendance'=>'Attendance',
     'Exams'=>'Exams',
     'library'=>'Library',
@@ -36,6 +37,8 @@ return [
     'Copyright' => 'Copyright',
     'Name_Programer' => 'SamirGamal MoraSoft All Rights Reserved',
     'Add_graduated'=> 'Add a graduate',
-    'Graduated_list'=> 'Graduated List'
-
+    'Graduated_list'=> 'Graduated List',
+    'Invoices' => 'Invoices',
+    'receipt_vouchers' => 'receipt vouchers',
+    'processingFees' => 'processing Fees',
 ];

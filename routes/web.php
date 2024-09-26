@@ -3,8 +3,12 @@
 use App\Http\Controllers\ClassroomController;
 use App\Http\Controllers\GradeController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Students\FeeInvoicesController;
+use App\Http\Controllers\Students\FeesController;
 use App\Http\Controllers\Students\GraduationController;
+use App\Http\Controllers\Students\ProcessingFeesController;
 use App\Http\Controllers\Students\PromotionController;
+use App\Http\Controllers\Students\ReceiptStudentController;
 use App\Http\Controllers\Students\StudentController;
 use App\Http\Controllers\Teachers\TeacherController;
 use Illuminate\Support\Facades\Auth;
@@ -88,6 +92,22 @@ Route::group(
         //==============================Graduation================================
 
         Route::resource('graduations', GraduationController::class);
+
+        //================================ fees ==================================
+
+        Route::resource('fees', FeesController::class);
+
+        //================================ feeInvoices ==================================
+
+        Route::resource('feeInvoices', FeeInvoicesController::class);
+
+        //================================ Receipt Student ==================================
+
+        Route::resource('receipts', ReceiptStudentController::class);
+
+        //================================ Receipt Student ==================================
+
+        Route::resource('processingFees', ProcessingFeesController::class);
  });
 
 

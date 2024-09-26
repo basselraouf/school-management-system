@@ -44,6 +44,12 @@ class Student extends Model
         return $this->belongsTo(My_Parent::class, 'parent_id');
     }
 
+    public function student_account()
+    {
+        return $this->hasMany('App\Models\StudentAccount', 'student_id');
+
+    }
+    
     protected static function boot()
     {
         parent::boot();

@@ -80,6 +80,22 @@
                             <li> <a href="{{url('add_parent')}}">{{trans('main_trans.Add_parent')}}</a> </li>
                         </ul>
                     </li>
+
+                    <!-- Accounts-->
+                    <li>
+                        <a href="javascript:void(0);" data-toggle="collapse" data-target="#Accounts-menu">
+                            <div class="pull-left"><i class="fas fa-money-bill-wave-alt"></i><span
+                                    class="right-nav-text">{{trans('main_trans.Accounts')}}</span></div>
+                            <div class="pull-right"><i class="ti-plus"></i></div>
+                            <div class="clearfix"></div>
+                        </a>
+                        <ul id="Accounts-menu" class="collapse" data-parent="#sidebarnav">
+                            <li> <a href="{{route('fees.index')}}">{{trans('main_trans.Fees')}}</a> </li>
+                            <li> <a href="{{route('feeInvoices.index')}}">{{trans('main_trans.Invoices')}}</a> </li>
+                            <li> <a href="{{route('receipts.index')}}">{{trans('main_trans.receipt_vouchers')}}</a> </li>
+                            <li> <a href="{{route('processingFees.index')}}">{{trans('main_trans.processingFees')}}</a> </li>
+                        </ul>
+                    </li>
                     <!-- menu item table -->
                     <li>
                         <a href="javascript:void(0);" data-toggle="collapse" data-target="#table">

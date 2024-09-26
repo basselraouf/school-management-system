@@ -48,10 +48,21 @@
                                             <td>{{$student->grade->Name}}</td>
                                             <td>{{$student->classroom->Name}}</td>
                                                 <td>
-                                                    <a href="{{route('students.edit',$student->id)}}" class="btn btn-info btn-sm" role="button" aria-pressed="true"><i class="fa fa-edit"></i></a>
-                                                    <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#Delete_Student{{ $student->id }}" title="{{ trans('parent_trans.Delete') }}"><i class="fa fa-trash"></i></button>
-                                                    <a href="{{route('students.show',$student->id)}}" class="btn btn-warning btn-sm" role="button" aria-pressed="true"><i class="far fa-eye"></i></a>
-                                                </td>
+
+                                                <div class="dropdown show">
+                                                    <a class="btn btn-success btn-sm dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        {{trans('fees_trans.Actions')}}
+                                                    </a>
+                                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                                        <a class="dropdown-item" href="{{route('students.show',$student->id)}}"><i style="color: #ffc107" class="far fa-eye "></i>&nbsp;  عرض بيانات الطالب</a>
+                                                        <a class="dropdown-item" href="{{route('students.edit',$student->id)}}"><i style="color:green" class="fa fa-edit"></i>&nbsp;  تعديل بيانات الطالب</a>
+                                                        <a class="dropdown-item" href="{{route('feeInvoices.show',$student->id)}}"><i style="color: #0000cc" class="fa fa-edit"></i>&nbsp;اضافة فاتورة رسوم&nbsp;</a>
+                                                        <a class="dropdown-item" href="{{route('receipts.show',$student->id)}}"><i style="color: #0000cc" class="fa fa-edit"></i>&nbsp; سند قبض&nbsp;</a>
+                                                        <a class="dropdown-item" href="{{route('processingFees.show',$student->id)}}"><i style="color: #9dc8e2" class="fas fa-money-bill-alt"></i>&nbsp; &nbsp; استبعاد رسوم</a>
+                                                        <a class="dropdown-item" data-target="#Delete_Student{{ $student->id }}" data-toggle="modal" href="##Delete_Student{{ $student->id }}"><i style="color: red" class="fa fa-trash"></i>&nbsp;  حذف بيانات الطالب</a>
+                                                    </div>
+                                                </div>
+
                                             </tr>
                                         @include('pages.students.delete-student')
                                         @endforeach

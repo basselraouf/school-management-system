@@ -24,6 +24,7 @@ return [
     'List_Parents'=>'قائمة اولياء الامور',
     'Add_parent'=>'اضافة ولي امر',
     'Accounts'=>'الحسابات',
+    'Fees' => 'الرسوم الدراسية',
     'Attendance'=>'الحضور والغياب',
     'Exams'=>'الامتحانات',
     'library'=>'المكتبة',
@@ -33,5 +34,8 @@ return [
     'Copyright' => 'جميع الحقوق محفوظة ',
     'Name_Programer' => 'سمير جمال مورا سوفت',
     'Add_graduated'=> 'اضافة خريج',
-    'Graduated_list'=> 'قائمة المتخرجين'
+    'Graduated_list'=> 'قائمة الخرييجين',
+    'Invoices' => 'الفواتير',
+    'receipt_vouchers' => 'سندات القبض',
+    'processingFees' => 'استبعاد رسوم',
 ];

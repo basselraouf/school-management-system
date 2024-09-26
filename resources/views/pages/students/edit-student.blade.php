@@ -129,7 +129,7 @@
                                 <div class="form-group">
                                     <label for="Classroom_id">{{trans('Students_trans.classrooms')}} : <span class="text-danger">*</span></label>
                                     <select class="custom-select mr-sm-2" name="Classroom_id">
-                                        <option value="{{$data['students']->Classroom_id}}">{{$data['students']->classroom->Name_Class}}</option>
+                                        <option value="{{$data['students']->Classroom_id}}">{{$data['students']->classroom->Name}}</option>
                                     </select>
                                 </div>
                             </div>

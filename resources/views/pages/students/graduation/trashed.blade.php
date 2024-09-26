@@ -2,13 +2,13 @@
 @section('css')
     @toastr_css
 @section('title')
-    {{trans('main_trans.list_Graduate')}}
+    {{trans('main_trans.Graduated_list')}}
 @stop
 @endsection
 @section('page-header')
     <!-- breadcrumb -->
 @section('PageTitle')
-    {{trans('main_trans.list_Graduate')}} <i class="fas fa-user-graduate"></i>
+    {{trans('main_trans.Graduated_list')}} <i class="fas fa-user-graduate"></i>
 @stop
 <!-- breadcrumb -->
 @endsection

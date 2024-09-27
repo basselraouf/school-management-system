@@ -41,4 +41,5 @@ return [
     'Invoices' => 'Invoices',
     'receipt_vouchers' => 'receipt vouchers',
     'processingFees' => 'processing Fees',
+    'status' => 'status'
 ];

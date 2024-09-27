@@ -3,6 +3,7 @@
 use App\Http\Controllers\ClassroomController;
 use App\Http\Controllers\GradeController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Students\AttendanceController;
 use App\Http\Controllers\Students\FeeInvoicesController;
 use App\Http\Controllers\Students\FeesController;
 use App\Http\Controllers\Students\GraduationController;
@@ -85,19 +86,19 @@ Route::group(
         Route::get('Download_attachment/{studentId}/{url}', [StudentController::class, 'Download_attachment'])->name('Download_attachment');
         Route::post('Delete_attachment', [StudentController::class, 'Delete_attachment'])->name('Delete_attachment');
 
-        //==============================Promotion================================
+        //=================================== Promotion =====================================
 
         Route::resource('promotions', PromotionController::class);
 
-        //==============================Graduation================================
+        //=================================== Graduation ====================================
 
         Route::resource('graduations', GraduationController::class);
 
-        //================================ fees ==================================
+        //===================================== fees ========================================
 
         Route::resource('fees', FeesController::class);
 
-        //================================ feeInvoices ==================================
+        //================================== feeInvoices ====================================
 
         Route::resource('feeInvoices', FeeInvoicesController::class);
 
@@ -108,6 +109,10 @@ Route::group(
         //================================ Receipt Student ==================================
 
         Route::resource('processingFees', ProcessingFeesController::class);
+
+        //================================== Attendance =====================================
+
+        Route::resource('attendance', AttendanceController::class);
  });
 
 

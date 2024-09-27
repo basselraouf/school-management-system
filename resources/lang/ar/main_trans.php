@@ -38,4 +38,5 @@ return [
     'Invoices' => 'الفواتير',
     'receipt_vouchers' => 'سندات القبض',
     'processingFees' => 'استبعاد رسوم',
+    'status' => 'الحالة'
 ];

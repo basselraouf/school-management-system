@@ -38,5 +38,7 @@ return [
     'Invoices' => 'الفواتير',
     'receipt_vouchers' => 'سندات القبض',
     'processingFees' => 'استبعاد رسوم',
-    'status' => 'الحالة'
+    'status' => 'الحالة',
+    'Subjects' => 'المواد الدراسية',
+    'Subject_list' => 'قائمة المواد',
 ];

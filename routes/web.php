@@ -11,6 +11,7 @@ use App\Http\Controllers\Students\ProcessingFeesController;
 use App\Http\Controllers\Students\PromotionController;
 use App\Http\Controllers\Students\ReceiptStudentController;
 use App\Http\Controllers\Students\StudentController;
+use App\Http\Controllers\Students\SubjectController;
 use App\Http\Controllers\Teachers\TeacherController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -113,6 +114,10 @@ Route::group(
         //================================== Attendance =====================================
 
         Route::resource('attendance', AttendanceController::class);
+
+        //==================================== Subject ======================================
+
+        Route::resource('subjects', SubjectController::class);
  });
 
 

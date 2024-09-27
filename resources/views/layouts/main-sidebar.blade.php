@@ -110,33 +110,34 @@
                         </ul>
                     </li>
 
-                     <!-- Subjects-->
-                     <li>
-                        <a href="javascript:void(0);" data-toggle="collapse" data-target="#Exams-icon">
+                    <!-- Subjects-->
+                    <li>
+                        <a href="javascript:void(0);" data-toggle="collapse" data-target="#Subjects">
                             <div class="pull-left"><i class="fas fa-book-open"></i><span class="right-nav-text">{{trans('main_trans.Subjects')}}</span></div>
                             <div class="pull-right"><i class="ti-plus"></i></div>
                             <div class="clearfix"></div>
                         </a>
-                        <ul id="Exams-icon" class="collapse" data-parent="#sidebarnav">
+                        <ul id="Subjects" class="collapse" data-parent="#sidebarnav">
                             <li> <a href="{{route('subjects.index')}}">{{trans('main_trans.Subject_list')}}</a> </li>
                         </ul>
                     </li>
 
-
-                    <!-- menu item Authentication-->
+                    <!-- Exams-->
                     <li>
-                        <a href="javascript:void(0);" data-toggle="collapse" data-target="#authentication">
-                            <div class="pull-left"><i class="ti-id-badge"></i><span
-                                    class="right-nav-text">Authentication</span></div>
+                        <a href="javascript:void(0);" data-toggle="collapse" data-target="#Exams-icon">
+                            <div class="pull-left"><i class="fas fa-book-open"></i><span class="right-nav-text">{{trans('main_trans.Exams')}}</span></div>
                             <div class="pull-right"><i class="ti-plus"></i></div>
                             <div class="clearfix"></div>
                         </a>
-                        <ul id="authentication" class="collapse" data-parent="#sidebarnav">
-                            <li> <a href="login.html">login</a> </li>
-                            <li> <a href="register.html">register</a> </li>
-                            <li> <a href="lockscreen.html">Lock screen</a> </li>
+                        <ul id="Exams-icon" class="collapse" data-parent="#sidebarnav">
+                            <li> <a href="{{route('Exams.index')}}">{{trans('main_trans.Exams_List')}}</a> </li>
                         </ul>
                     </li>
+
+
+
+                    
+
                     <!-- menu item maps-->
                     <li>
                         <a href="maps.html"><i class="ti-location-pin"></i><span class="right-nav-text">maps</span>

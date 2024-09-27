@@ -4,6 +4,7 @@ use App\Http\Controllers\ClassroomController;
 use App\Http\Controllers\GradeController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Students\AttendanceController;
+use App\Http\Controllers\Students\ExamController;
 use App\Http\Controllers\Students\FeeInvoicesController;
 use App\Http\Controllers\Students\FeesController;
 use App\Http\Controllers\Students\GraduationController;
@@ -118,6 +119,10 @@ Route::group(
         //==================================== Subject ======================================
 
         Route::resource('subjects', SubjectController::class);
+
+        //===================================== Exams =======================================
+
+        Route::resource('Exams', ExamController::class);
  });
 
 

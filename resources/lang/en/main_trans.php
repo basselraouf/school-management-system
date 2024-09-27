@@ -30,6 +30,7 @@ return [
     'Fees' => 'Fees',
     'Attendance'=>'Attendance',
     'Exams'=>'Exams',
+    'Exams_List'=>'Exams List',
     'library'=>'Library',
     'Onlineclasses'=>'Online classes',
     'Settings'=>'Settings',

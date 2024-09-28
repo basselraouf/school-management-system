@@ -4,31 +4,32 @@ namespace App\Http\Controllers\Students;
 
 use App\Http\Controllers\Controller;
 use App\Repositories\Student\ExamRepositoryInterface;
+use App\Repositories\Student\QuizRepositoryInterface;
 use Illuminate\Http\Request;
 
-class ExamController extends Controller
+class QuizController extends Controller
 {
-    protected $Exam;
+    protected $Quiz;
 
-    public function __construct(ExamRepositoryInterface $Exam)
+    public function __construct(QuizRepositoryInterface $Quiz)
     {
-        $this->Exam =$Exam;
+        $this->Quiz =$Quiz;
     }
 
     public function index()
     {
-        return $this->Exam->index();
+        return $this->Quiz->index();
     }
 
     public function create()
     {
-        return $this->Exam->create();
+        return $this->Quiz->create();
     }
 
 
     public function store(Request $request)
     {
-        return $this->Exam->store($request);
+        return $this->Quiz->store($request);
     }
 
     public function show($id)
@@ -38,16 +39,16 @@ class ExamController extends Controller
 
     public function edit($id)
     {
-        return $this->Exam->edit($id);
+        return $this->Quiz->edit($id);
     }
 
     public function update(Request $request)
     {
-        return $this->Exam->update($request);
+        return $this->Quiz->update($request);
     }
 
     public function destroy(Request $request)
     {
-        return $this->Exam->destroy($request);
+        return $this->Quiz->destroy($request);
     }
 }

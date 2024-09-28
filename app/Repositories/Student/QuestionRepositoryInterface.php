@@ -3,7 +3,7 @@
 
 namespace App\Repositories\Student;
 
-interface ExamRepositoryInterface
+interface QuestionRepositoryInterface
 {
     public function index();
 

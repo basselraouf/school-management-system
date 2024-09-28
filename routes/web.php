@@ -10,6 +10,8 @@ use App\Http\Controllers\Students\FeesController;
 use App\Http\Controllers\Students\GraduationController;
 use App\Http\Controllers\Students\ProcessingFeesController;
 use App\Http\Controllers\Students\PromotionController;
+use App\Http\Controllers\Students\QuestionController;
+use App\Http\Controllers\Students\QuizController;
 use App\Http\Controllers\Students\ReceiptStudentController;
 use App\Http\Controllers\Students\StudentController;
 use App\Http\Controllers\Students\SubjectController;
@@ -122,7 +124,11 @@ Route::group(
 
         //===================================== Exams =======================================
 
-        Route::resource('Exams', ExamController::class);
+        Route::resource('Quizzes', QuizController::class);
+
+        //=================================== Questions =====================================
+
+        Route::resource('questions', QuestionController::class);
  });
 
 

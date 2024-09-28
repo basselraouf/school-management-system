@@ -125,18 +125,19 @@
                     <!-- Exams-->
                     <li>
                         <a href="javascript:void(0);" data-toggle="collapse" data-target="#Exams-icon">
-                            <div class="pull-left"><i class="fas fa-book-open"></i><span class="right-nav-text">{{trans('main_trans.Exams')}}</span></div>
+                            <div class="pull-left"><i class="fas fa-book-open"></i><span class="right-nav-text">{{trans('main_trans.Quizzes')}}</span></div>
                             <div class="pull-right"><i class="ti-plus"></i></div>
                             <div class="clearfix"></div>
                         </a>
                         <ul id="Exams-icon" class="collapse" data-parent="#sidebarnav">
-                            <li> <a href="{{route('Exams.index')}}">{{trans('main_trans.Exams_List')}}</a> </li>
+                            <li> <a href="{{route('Quizzes.index')}}">{{trans('main_trans.Quizzes_List')}}</a> </li>
+                            <li> <a href="{{route('questions.index')}}">{{trans('main_trans.Questions_List')}}</a> </li>
                         </ul>
                     </li>
 
 
 
-                    
+
 
                     <!-- menu item maps-->
                     <li>

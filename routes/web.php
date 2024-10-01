@@ -8,6 +8,7 @@ use App\Http\Controllers\Students\ExamController;
 use App\Http\Controllers\Students\FeeInvoicesController;
 use App\Http\Controllers\Students\FeesController;
 use App\Http\Controllers\Students\GraduationController;
+use App\Http\Controllers\Students\LibraryController;
 use App\Http\Controllers\Students\OnlineClassController;
 use App\Http\Controllers\Students\ProcessingFeesController;
 use App\Http\Controllers\Students\PromotionController;
@@ -134,6 +135,12 @@ Route::group(
         //================================= Online Classes ==================================
 
         Route::resource('online_classes', OnlineClassController::class);
+
+        //==================================== Libraries ====================================
+
+        Route::resource('libraries', LibraryController::class);
+        Route::get('download_file/{filename}', [LibraryController::class, 'downloadAttachment'])->name('downloadAttachment');
+
  });
 
 

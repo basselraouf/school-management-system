@@ -31,6 +31,8 @@ return [
     'Questions_List'=>'قائمة الاسئلة',
     'library'=>'المكتبة',
     'Onlineclasses'=>'حصص اونلاين',
+    'Direct_connection'=>'الاتصال مباشر مع زوم',
+    'Indirect_connection'=>'الاتصال الغير مباشر مع زوم',
     'Settings'=>'الاعدادات',
     'Users'=>'المستخدمين',
     'Copyright' => 'جميع الحقوق محفوظة ',

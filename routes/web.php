@@ -8,6 +8,7 @@ use App\Http\Controllers\Students\ExamController;
 use App\Http\Controllers\Students\FeeInvoicesController;
 use App\Http\Controllers\Students\FeesController;
 use App\Http\Controllers\Students\GraduationController;
+use App\Http\Controllers\Students\OnlineClassController;
 use App\Http\Controllers\Students\ProcessingFeesController;
 use App\Http\Controllers\Students\PromotionController;
 use App\Http\Controllers\Students\QuestionController;
@@ -129,6 +130,10 @@ Route::group(
         //=================================== Questions =====================================
 
         Route::resource('questions', QuestionController::class);
+
+        //================================= Online Classes ==================================
+
+        Route::resource('online_classes', OnlineClassController::class);
  });
 
 

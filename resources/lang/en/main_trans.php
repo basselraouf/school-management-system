@@ -34,6 +34,8 @@ return [
     'Questions_List'=>'Questions List',
     'library'=>'Library',
     'Onlineclasses'=>'Online classes',
+    'Direct_connection'=>'Direct connection with Zoom',
+    'Indirect_connection'=>'Indirect connection with Zoom',
     'Settings'=>'Settings',
     'Users'=>'Users',
     'Copyright' => 'Copyright',

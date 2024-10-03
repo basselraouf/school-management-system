@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\ClassroomController;
 use App\Http\Controllers\GradeController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\SettingController;
 use App\Http\Controllers\Students\AttendanceController;
 use App\Http\Controllers\Students\ExamController;
 use App\Http\Controllers\Students\FeeInvoicesController;
@@ -22,7 +24,6 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use livewire\Livewire;
-use Livewire\Http\LivewireController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,6 +36,17 @@ use Livewire\Http\LivewireController;
 |
 */
 
+Route::get('/', [HomeController::class, 'index'])->name('selection');
+
+Route::group([], function () {
+
+    Route::get('/login/{type}', [LoginController::class, 'loginForm'])->middleware('guest')->name('login.show');
+
+    Route::post('/login', [LoginController::class, 'login'])->name('login');
+
+    Route::post('/logout/{type}', [LoginController::class, 'logout'])->name('logout');
+});
+
 Route::group(
     [
         'prefix' => LaravelLocalization::setLocale(),
@@ -45,16 +57,11 @@ Route::group(
             return Route::post('/livewire/update', $handle);
         });
 
-        Route::get('/', function()
-	    {
-		    return view('dashboard');
-	    });
+        //================================= Dashboard ===================================
 
-        //==============================Dashboard===============================
+    Route::get('/dashboard', [HomeController::class, 'dashboard'])->name('dashboard');
 
-    Route::get('/home', [HomeController::class, 'index'])->name('home');
-
-        //==============================Grades===============================
+        //================================== Grades =====================================
 
     Route::group(['prefix' => 'grades'], function() {
         Route::get('/', [GradeController::class, 'index'])->name('grades.index');
@@ -65,7 +72,7 @@ Route::group(
         Route::delete('/delete/{id}', [GradeController::class , 'destroy'])->name('grades.destroy');
     });
 
-        //==============================Classrooms============================
+        //================================== Classrooms ===================================
 
     Route::group(['prefix' => 'classrooms'], function() {
         Route::get('/', [ClassroomController::class, 'index'])->name('classrooms.index');
@@ -76,15 +83,15 @@ Route::group(
         Route::delete('/delete/{id}', [ClassroomController::class , 'destroy'])->name('classrooms.destroy');
     });
 
-        //==============================Parents================================
+        //================================== Parents =======================================
 
         Route::view('add_parent','livewire.show_Form');
 
-        //==============================Teachers================================
+        //=================================== Teachers =====================================
 
         Route::resource('teachers', TeacherController::class);
 
-        //==============================Students================================
+        //=================================== Students =====================================
 
         Route::resource('students', StudentController::class);
         Route::get('Get_classrooms/{id}', [StudentController::class, 'Get_classrooms']);
@@ -141,6 +148,9 @@ Route::group(
         Route::resource('libraries', LibraryController::class);
         Route::get('download_file/{filename}', [LibraryController::class, 'downloadAttachment'])->name('downloadAttachment');
 
+        //==================================== Settings =====================================
+
+        Route::resource('settings', SettingController::class);
  });
 
 

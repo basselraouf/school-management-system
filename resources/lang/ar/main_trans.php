@@ -4,8 +4,8 @@ return [
 
     'Dashboard'=>'الرئيسية',
     'Dashboard_page'=>'لوحة التحكم',
-    'Main_title'=>'برنامج مورا سوفت لادارة المدارس',
-    'Programname' => 'برنامج مورا سوفت لادارة المدارس',
+    'Main_title'=>'موقع مدرسة MS',
+    'Programname' => 'موقع مدرسة MS',
     'change_language'=>'تغير اللغة',
     'Grades'=>'المراحل الدراسية',
     'Grades_List'=>'قائمة المراحل الدراسية',
@@ -30,6 +30,7 @@ return [
     'Quizzes_List'=>'قائمة الاختبارات',
     'Questions_List'=>'قائمة الاسئلة',
     'library'=>'المكتبة',
+    'Books_List'=>'قائمة الكتب',
     'Onlineclasses'=>'حصص اونلاين',
     'Direct_connection'=>'الاتصال مباشر مع زوم',
     'Indirect_connection'=>'الاتصال الغير مباشر مع زوم',

@@ -33,6 +33,7 @@ return [
     'Quizzes_List'=>'Exams List',
     'Questions_List'=>'Questions List',
     'library'=>'Library',
+    'Books_List'=>'Books List',
     'Onlineclasses'=>'Online classes',
     'Direct_connection'=>'Direct connection with Zoom',
     'Indirect_connection'=>'Indirect connection with Zoom',

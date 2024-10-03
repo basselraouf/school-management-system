@@ -3,12 +3,12 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Storage;
 use Spatie\Translatable\HasTranslations;
 
-class Student extends Model
+class Student extends Authenticatable
 {
     use HasFactory, HasTranslations, SoftDeletes;
     protected $guarded = [];
@@ -54,7 +54,7 @@ class Student extends Model
     {
         return $this->hasMany('App\Models\Attendance', 'student_id');
     }
-    
+
     protected static function boot()
     {
         parent::boot();

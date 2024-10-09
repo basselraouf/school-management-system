@@ -9,7 +9,7 @@ use Spatie\Translatable\HasTranslations;
 class Teacher extends Authenticatable
 {
     use HasFactory, HasTranslations;
-    public $translatable = ['Name'];
+    public $translatable = ['name'];
     protected $guarded = [];
 
     public function specializations()

@@ -13,7 +13,7 @@ class ReligionTableSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('religions')->truncate();
+        DB::table('religions')->delete();
 
         $religions = [
             [

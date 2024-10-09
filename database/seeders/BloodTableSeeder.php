@@ -13,7 +13,7 @@ class BloodTableSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('type_bloods')->truncate();
+        DB::table('type_bloods')->delete();
 
         $bloodTypes = [
             ['Name' => 'A+'],

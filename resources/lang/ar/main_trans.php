@@ -4,6 +4,7 @@ return [
 
     'Dashboard'=>'الرئيسية',
     'Dashboard_page'=>'لوحة التحكم',
+    'Welcome' => 'مرحبا بك',
     'Main_title'=>'موقع مدرسة MS',
     'Programname' => 'موقع مدرسة MS',
     'change_language'=>'تغير اللغة',

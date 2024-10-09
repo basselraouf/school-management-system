@@ -20,6 +20,7 @@ use App\Http\Controllers\Students\ReceiptStudentController;
 use App\Http\Controllers\Students\StudentController;
 use App\Http\Controllers\Students\SubjectController;
 use App\Http\Controllers\Teachers\TeacherController;
+use App\Livewire\Calendar;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
@@ -50,7 +51,7 @@ Route::group([], function () {
 Route::group(
     [
         'prefix' => LaravelLocalization::setLocale(),
-        'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath', 'auth']
+        'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath', 'auth', 'auth:teacher']
     ], function(){
 
         Livewire::setUpdateRoute(function ($handle) {
@@ -85,7 +86,8 @@ Route::group(
 
         //================================== Parents =======================================
 
-        Route::view('add_parent','livewire.show_Form');
+        Route::view('add_parent','livewire.show_Form')->name('add_parent');
+        // Livewire::component('calendar', Calendar::class);
 
         //=================================== Teachers =====================================
 

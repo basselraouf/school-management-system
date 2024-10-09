@@ -65,7 +65,7 @@
                         <select name="teacher_ids[]" id="teacherIds" class="form-control" multiple style="height:auto; padding: 12px;">
                             @foreach($teachers as $teacher)
                                 <option value="{{ $teacher->id }}" {{ in_array($teacher->id, $classroom->teachers->pluck('id')->toArray()) ? 'selected' : '' }}>
-                                    {{ $teacher->Name }}
+                                    {{ $teacher->name }}
                                 </option>
                             @endforeach
                         </select>

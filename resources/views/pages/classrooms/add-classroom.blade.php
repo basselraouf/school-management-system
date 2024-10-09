@@ -69,7 +69,7 @@
                         <label for="teacherIds">Select Teachers:</label>
                         <select name="teacher_ids[]" id="teacherIds" class="form-control" multiple style="height:auto; padding: 8px;">
                             @foreach($teachers as $teacher)
-                                <option value="{{ $teacher->id }}">{{ $teacher->Name }}</option>
+                                <option value="{{ $teacher->id }}">{{ $teacher->name }}</option>
                             @endforeach
                         </select>
                         <!-- Instructions for Multi-Select -->

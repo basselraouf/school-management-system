@@ -17,7 +17,7 @@ return new class extends Migration
             $table->foreignId('subject_id')->references('id')->on('subjects')->onDelete('cascade');
             $table->foreignId('grade_id')->references('id')->on('Grades')->onDelete('cascade');
             $table->foreignId('classroom_id')->references('id')->on('Classrooms')->onDelete('cascade');
-            $table->foreignId('teacher_id')->references('id')->on('Classrooms')->onDelete('cascade');
+            $table->foreignId('teacher_id')->references('id')->on('teachers')->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -42,7 +42,7 @@
                                             <tr>
                                                 <td>{{ $loop->iteration}}</td>
                                                 <td>{{$book->title}}</td>
-                                                <td>{{$book->teacher->Name}}</td>
+                                                <td>{{$book->teacher->name}}</td>
                                                 <td>{{$book->grade->Name}}</td>
                                                 <td>{{$book->classroom->Name}}</td>
                                                 <td>

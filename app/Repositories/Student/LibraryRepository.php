@@ -32,7 +32,7 @@ class LibraryRepository implements LibraryRepositoryInterface
             $books->file_name =  $request->file('file_name')->getClientOriginalName();
             $books->Grade_id = $request->Grade_id;
             $books->classroom_id = $request->Classroom_id;
-            $books->teacher_id = 3;
+            $books->teacher_id = 4;
             $books->save();
             $this->uploadFile($request,'file_name', 'library');
 

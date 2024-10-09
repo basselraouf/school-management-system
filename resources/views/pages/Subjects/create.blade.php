@@ -47,18 +47,17 @@
 
                                 <div class="form-row">
                                     <div class="form-group col">
-                                        <label for="inputState">المرحلة الدراسية</label>
-                                        <select class="custom-select my-1 mr-sm-2" name="Grade_id">
+                                        <label for="inputState">{{trans('Students_trans.Grade')}}</label>
+                                        <select class="custom-select mr-sm-2" name="Grade_id" required>
                                             <option selected disabled>{{trans('Parent_trans.Choose')}}...</option>
-                                            @foreach($grades as $grade)
-                                                <option value="{{$grade->id}}">{{$grade->Name}}</option>
+                                            @foreach($Grades as $Grade)
+                                                <option value="{{$Grade->id}}">{{$Grade->Name}}</option>
                                             @endforeach
                                         </select>
                                     </div>
-
                                     <div class="form-group col">
-                                        <label for="Classroom_id">الصف الدراسي : <span
-                                                class="text-danger"></span></label>
+                                        <label for="Classroom_id">{{trans('Students_trans.classrooms')}} : <span
+                                                class="text-danger">*</span></label>
                                         <select class="custom-select mr-sm-2" name="Classroom_id" required>
 
                                         </select>
@@ -70,7 +69,7 @@
                                         <select class="custom-select my-1 mr-sm-2" name="teacher_id">
                                             <option selected disabled>{{trans('Parent_trans.Choose')}}...</option>
                                             @foreach($teachers as $teacher)
-                                                <option value="{{$teacher->id}}">{{$teacher->Name}}</option>
+                                                <option value="{{$teacher->id}}">{{$teacher->name}}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -99,17 +98,17 @@
                         dataType: "json",
                         success: function (data) {
                             $('select[name="Classroom_id"]').empty();
-                            $('select[name="Classroom_id"]').append('<option selected disabled >{{trans('Parent_trans.Choose')}}...</option>');
                             $.each(data, function (key, value) {
+                                $('select[name="Classroom_id"]').append('<option selected disabled >{{trans('Parent_trans.Choose')}}...</option>');
                                 $('select[name="Classroom_id"]').append('<option value="' + key + '">' + value + '</option>');
                             });
+
                         },
-                        error: function (xhr, status, error) {
-                            console.log("AJAX error: ", error);
-                        }
                     });
-                } else {
-                    console.log('No Grade selected');
+                }
+
+                else {
+                    console.log('AJAX load did not work');
                 }
             });
         });
@@ -140,5 +139,4 @@
             });
         });
     </script>
-
 @endsection

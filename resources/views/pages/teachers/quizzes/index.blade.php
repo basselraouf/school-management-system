@@ -21,7 +21,7 @@
                     <div class="col-xl-12 mb-30">
                         <div class="card card-statistics h-100">
                             <div class="card-body">
-                                <a href="{{route('Quizzes.create')}}" class="btn btn-success btn-sm" role="button"
+                                <a href="{{route('quizzes.create')}}" class="btn btn-success btn-sm" role="button"
                                    aria-pressed="true">اضافة اختبار جديد</a><br><br>
                                 <div class="table-responsive">
                                     <table id="datatable" class="table  table-hover table-sm table-bordered p-0"
@@ -46,20 +46,23 @@
                                                 <td>{{$quizze->grade->Name}}</td>
                                                 <td>{{$quizze->classroom->Name}}</td>
                                                 <td>
-                                                    <a href="{{route('Quizzes.edit',$quizze->id)}}"
+                                                    <a href="{{route('quizzes.edit',$quizze->id)}}"
                                                        class="btn btn-info btn-sm" role="button" aria-pressed="true"><i
                                                             class="fa fa-edit"></i></a>
                                                     <button type="button" class="btn btn-danger btn-sm"
                                                             data-toggle="modal"
                                                             data-target="#delete_exam{{ $quizze->id }}" title="حذف"><i
                                                             class="fa fa-trash"></i></button>
+                                                    <a href="{{route('quizzes.show',$quizze->id)}}"
+                                                       class="btn btn-warning btn-sm" title="عرض الاسئلة" role="button" aria-pressed="true"><i
+                                                            class="fa fa-binoculars"></i></a>
                                                 </td>
                                             </tr>
 
                                             <div class="modal fade" id="delete_exam{{$quizze->id}}" tabindex="-1"
                                                  role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                 <div class="modal-dialog" role="document">
-                                                    <form action="{{route('Quizzes.destroy','test')}}" method="post">
+                                                    <form action="{{route('quizzes.destroy',$quizze->id)}}" method="post">
                                                         {{method_field('delete')}}
                                                         {{csrf_field()}}
                                                         <div class="modal-content">
@@ -72,15 +75,15 @@
                                                                 </button>
                                                             </div>
                                                             <div class="modal-body">
-                                                                <p> هل انت متاكد من حذف {{$quizze->name}}؟</p>
+                                                                <p> {{ trans('My_Classes_trans.Warning_Grade') }} {{$quizze->name}}</p>
                                                                 <input type="hidden" name="id" value="{{$quizze->id}}">
                                                             </div>
                                                             <div class="modal-footer">
                                                                 <div class="modal-footer">
                                                                     <button type="button" class="btn btn-secondary"
-                                                                            data-dismiss="modal">{{trans('Students_trans.Close')}}</button>
+                                                                            data-dismiss="modal">{{ trans('My_Classes_trans.Close') }}</button>
                                                                     <button type="submit"
-                                                                            class="btn btn-danger">{{trans('Students_trans.submit')}}</button>
+                                                                            class="btn btn-danger">{{ trans('My_Classes_trans.submit') }}</button>
                                                                 </div>
                                                             </div>
                                                         </div>

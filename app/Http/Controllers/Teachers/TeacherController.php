@@ -42,7 +42,7 @@ class TeacherController extends Controller
     {
         try{
             $request->validate([
-                'Email' => 'required|email|unique:teachers,Email',
+                'Email' => 'required|email|unique:teachers,email',
                 'Password' => 'required|min:8',
                 'Name_ar' => 'required|string|max:255',
                 'Name_en' => 'required|string|max:255',
@@ -53,14 +53,14 @@ class TeacherController extends Controller
             ]);
 
             $data = $request->only([
-                'Email',
                 'specialization_id',
                 'gender_id',
                 'Joining_Date',
                 'Address',
             ]);
-            $data['Name'] = ['en' => $request->Name_en, 'ar' => $request->Name_ar];
-            $data['Password'] = bcrypt($request->Password);
+            $data['email'] = $request->Email;
+            $data['name'] = ['en' => $request->Name_en, 'ar' => $request->Name_ar];
+            $data['password'] = bcrypt($request->Password);
 
             $this->teacherRepository->createTeacher($data);
 
@@ -97,14 +97,14 @@ class TeacherController extends Controller
     {
         try{
             $request->validate([
-                'Email' => [
+                'email' => [
                     'required',
                     'email',
-                    Rule::unique('teachers', 'Email')->ignore($id),
+                    Rule::unique('teachers', 'email')->ignore($id),
                 ],
-                'Password' => 'required|min:8',
-                'Name_ar' => 'required|string|max:255',
-                'Name_en' => 'required|string|max:255',
+                'password' => 'required|min:8',
+                'name_ar' => 'required|string|max:255',
+                'name_en' => 'required|string|max:255',
                 'specialization_id' => 'required|exists:specializations,id',
                 'gender_id' => 'required|exists:genders,id',
                 'Joining_Date' => 'required|date',
@@ -112,14 +112,14 @@ class TeacherController extends Controller
             ]);
 
             $data = $request->only([
-                'Email',
+                'email',
                 'specialization_id',
                 'gender_id',
                 'Joining_Date',
                 'Address',
             ]);
-            $data['Name'] = ['en' => $request->Name_en, 'ar' => $request->Name_ar];
-            $data['Password'] = bcrypt($request->Password);
+            $data['name'] = ['en' => $request->Name_en, 'ar' => $request->Name_ar];
+            $data['password'] = bcrypt($request->Password);
 
             $this->teacherRepository->updateTeacher($data, $id);
 

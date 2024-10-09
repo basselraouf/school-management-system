@@ -26,7 +26,11 @@
 </head>
 
 <body>
-
+    @if(session('message'))
+        <div class="alert alert-danger" style="text-align: center;">
+            {{ session('message') }}
+        </div>
+    @endif
     <div class="wrapper">
 
         <section class="height-100vh d-flex align-items-center page-section-ptb login"

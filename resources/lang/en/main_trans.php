@@ -4,8 +4,9 @@ return [
 
     'Dashboard'=>'Dashboard',
     'Dashboard_page'=>'Dashboard',
-    'Main_title' => 'MoraSoft School Management Program',
-    'Programname' => 'MoraSoft School Management Program',
+    'Welcome' => 'Welcome',
+    'Main_title' => 'MS School',
+    'Programname' => 'MS School Management Program',
     'change_language'=>'language',
     'Grades'=>'Grades',
     'Grades_List'=>'Grades List',

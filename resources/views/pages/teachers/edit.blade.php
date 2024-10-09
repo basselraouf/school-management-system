@@ -37,14 +37,14 @@
                                 <div class="col">
                                     <label for="title">{{trans('Teacher_trans.Email')}}</label>
                                     <input type="hidden" value="{{$Teacher->id}}" name="id">
-                                    <input type="email" name="Email" value="{{$Teacher->Email}}" class="form-control">
+                                    <input type="email" name="Email" value="{{$Teacher->email}}" class="form-control">
                                     @error('Email')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror
                                 </div>
                                 <div class="col">
                                     <label for="title">{{trans('Teacher_trans.Password')}}</label>
-                                    <input type="password" name="Password" value="{{$Teacher->Password}}" class="form-control">
+                                    <input type="password" name="Password" value="{{$Teacher->password}}" class="form-control">
                                     @error('Password')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror
@@ -56,14 +56,14 @@
                             <div class="form-row">
                                 <div class="col">
                                     <label for="title">{{trans('Teacher_trans.Name_ar')}}</label>
-                                    <input type="text" name="Name_ar" value="{{ $Teacher->getTranslation('Name', 'ar') }}" class="form-control">
+                                    <input type="text" name="Name_ar" value="{{ $Teacher->getTranslation('name', 'ar') }}" class="form-control">
                                     @error('Name_ar')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror
                                 </div>
                                 <div class="col">
                                     <label for="title">{{trans('Teacher_trans.Name_en')}}</label>
-                                    <input type="text" name="Name_en" value="{{ $Teacher->getTranslation('Name', 'en') }}" class="form-control">
+                                    <input type="text" name="Name_en" value="{{ $Teacher->getTranslation('name', 'en') }}" class="form-control">
                                     @error('Name_en')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror
